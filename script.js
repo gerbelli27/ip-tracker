@@ -1,7 +1,11 @@
-
-
 lati = 50;
 long = 50;
+
+var newIcon = L.icon({
+    iconUrl: './images/icon-location.svg',
+    iconSize:     [38, 47], // size of the icon
+    iconAnchor:   [18, 46], // point of the icon which will correspond to marker's location
+});
 
 const map = L.map('map').setView([lati, long], 13);
             var marker = L.marker([lati, long]).addTo(map);
@@ -16,7 +20,7 @@ const map = L.map('map').setView([lati, long], 13);
 
 updatePosition = (updatePosition) => {
     map.setView(updatePosition, 13)
-    L.marker(updatePosition).addTo(map);
+    L.marker(updatePosition, {icon: newIcon}).addTo(map);
 }
 
 //API ipify
@@ -28,12 +32,22 @@ $(function () {
         url: "https://geo.ipify.org/api/v1",
         data: {apiKey: api_key, ipAddress: ip},
         success: function(data) {
+          updatePosition([data.location.lat, data.location.lng])  
+          
+            console.log(data)
             
             ip = data.ip;
-           
-            updatePosition([data.location.lat, data.location.lng])
-            document.querySelector("#out-ip").innerHTML = ip;
+            isp = data.isp;
+            city = data.location.city;
+            region = data.location.region;
+            country = data.location.country;
+            time = data.location.timezone;
+
             
+            document.querySelector("#out-ip").innerHTML = ip;
+            document.querySelector("#out-city").innerHTML = city;
+            document.querySelector("#out-time").innerHTML = time;
+            document.querySelector("#out-isp").innerHTML = isp;
         }
     });
  });
