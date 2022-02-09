@@ -1,7 +1,3 @@
-
-
-
-
 lati = "";
 long = "";
 
@@ -27,11 +23,19 @@ updatePosition = (updatePosition) => {
     L.marker(updatePosition, { icon: newIcon }).addTo(map);
 }
 
+// IF 
+
+
+
+
+
+
+
 
 
 //API ipify
 
-var ip = "";
+/*var ip = "";
 var api_key = "at_VbLAcOoP4YtKGUjAPYKo4e1BLJnwv";
 $(function () {
     $.ajax({
@@ -54,5 +58,47 @@ $(function () {
             document.querySelector("#out-isp").innerHTML = isp;
         }
     });
-});
+});*/
 
+
+
+function enviar() {
+
+    var search = document.getElementById("input-search");
+    event.preventDefault();
+    if (search.value != "") {
+        let ip = search.value;
+        let www = search.value
+        var api_key = "at_VbLAcOoP4YtKGUjAPYKo4e1BLJnwv";
+        $(function () {
+            $.ajax({
+                url: "https://geo.ipify.org/api/v1",
+                data: { apiKey: api_key, ipAddress: ip, domain: www},
+                success: function (data) {
+                    updatePosition([data.location.lat, data.location.lng])
+                    console.log(data)
+
+                    ip = data.ip;
+                    isp = data.isp;
+                    city = data.location.city;
+                    region = data.location.region;
+                    country = data.location.country;
+                    time = data.location.timezone;
+
+                    document.querySelector("#out-ip").innerHTML = ip;
+                    document.querySelector("#out-city").innerHTML = city;
+                    document.querySelector("#out-time").innerHTML = time;
+                    document.querySelector("#out-isp").innerHTML = isp;
+                }
+            });
+        });
+
+
+
+
+
+    } else {
+
+    }
+
+}
