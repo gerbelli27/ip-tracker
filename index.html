@@ -14,10 +14,8 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
     crossorigin="" />
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-    crossorigin=""></script>
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  
+  
 
   <title>Frontend Mentor | IP Address Tracker</title>
 </head>
@@ -25,10 +23,9 @@
 <body>
   <header class="topbar">
     <h1 class="title">IP Address Tracker</h1>
-    <form name="search-ip" class="form-container" action="/action">
-      <input class="form" autocomplete="off" type="text" id="input-search" name="search"
-        placeholder="Search for any IP address or domain">
-      <input type="submit" class="button" onclick="enviar();" value="">
+    <form name="search-ip" class="form-container">
+      <input class="form" autocomplete="off" type="text" id="input-search" name="search" placeholder="Search for any IP address or domain">
+      <input type="submit" class="button" id="button" value="">
     </form>
     <div class="data">
       <h2 class="title-data">ip address<span class="txt-data" id="out-ip"></span></h2>
@@ -38,8 +35,12 @@
     </div>
   </header>
 
-  <main id="map"> </main>
-  <script src="script.js"></script>
+  <main id="ma"> </main>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
