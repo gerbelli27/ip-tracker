@@ -1,8 +1,6 @@
-var search = document.querySelector("#input-search");
-var value = search.value
-var ip = ""
-var api_key = "at_CB9Q0AURWleU7KQ67SOGa5XOHbUPP";
-$(function () {
+let ip = ""
+let api_key = "at_CB9Q0AURWleU7KQ67SOGa5XOHbUPP";
+function getData(value) {
     $.ajax({
         url: "https://geo.ipify.org/api/v1",
         data: { apiKey: api_key, ipAddress: ip, domain: value },
@@ -21,39 +19,18 @@ $(function () {
             updatePosition([data.location.lat, data.location.lng])
         }
     });
-});
+};
 
 const searchDomain = (event) => {
-    event.preventDefault()
-    var search = document.querySelector("#input-search");
-    var value = search.value
-    var ip = ""
-    var api_key = "at_CB9Q0AURWleU7KQ67SOGa5XOHbUPP";
-    $(function () {
-        $.ajax({
-            url: "https://geo.ipify.org/api/v1",
-            data: { apiKey: api_key, ipAddress: ip, domain: value },
-            success: function (data) {
-                updatePosition([data.location.lat, data.location.lng])
-                ip = data.ip;
-                isp = data.isp;
-                city = data.location.city;
-                region = data.location.region;
-                country = data.location.country;
-                time = data.location.timezone;
-
-                document.querySelector("#out-ip").innerHTML = ip;
-                document.querySelector("#out-city").innerHTML = city;
-                document.querySelector("#out-time").innerHTML = "UTC" + time;
-                document.querySelector("#out-isp").innerHTML = isp;
-            }
-        });
-    });
-
+    event.preventDefault();
+    let search = document.querySelector("#input-search");
+    let value = search.value;
+    getData(value);
 }
 
 const button = document.querySelector('#button');
 button.addEventListener('click', searchDomain)
+getData()
 
 //MAP//
 
