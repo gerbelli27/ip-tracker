@@ -52,8 +52,8 @@ In this project I learned how to make use of two APIs, the API (https://www.ipif
 
 
 ### Useful resources
-https://stackoverflow.com/
-https://leafletjs.com/
+https://stackoverflow.com/ | 
+https://leafletjs.com/  |
 https://geo.ipify.org/
 
 
